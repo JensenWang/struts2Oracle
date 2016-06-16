@@ -1,4 +1,4 @@
--- Ñ§Éú±í
+-- å­¦ç”Ÿè¡¨
 create table xsb
 (
 	xh	char(6)	not null	primary key,

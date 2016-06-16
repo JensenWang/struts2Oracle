@@ -1,4 +1,4 @@
--- Ñ§ÉúÏàÆ¬
+-- å­¦ç”Ÿç…§ç‰‡
 create table xszp
 (
 	xh	char(6)	not null,
