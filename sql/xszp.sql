@@ -5,4 +5,4 @@ create table xszp
 	zp	blob	null,
 	foreign key (xh) references xsb(xh)
 	on delete cascade
-)
+);

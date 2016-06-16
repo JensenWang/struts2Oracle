@@ -8,4 +8,4 @@ create table xsb
 	zy	char(12)	null,
 	zxf	number(2)	default 0	check (zxf>=0 and zxf<160),
 	bz	varchar2(200)	null
-)
+);
