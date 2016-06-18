@@ -49,4 +49,4 @@ local.properties
 # Code Recommenders
 .recommenders/
 
-/WebRoot/WEB-INF/classes
+/WebRoot/WEB-INF/classes/
