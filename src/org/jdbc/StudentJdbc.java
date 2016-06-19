@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 import org.vo.Student;
 
 public class StudentJdbc {
-	
+
 	private Connection conn = null;
 	private PreparedStatement psmt = null;
 	private ResultSet result = null;
@@ -19,9 +19,9 @@ public class StudentJdbc {
 	 * @return
 	 */
 	public Connection getConn() {
-		
+
 		try {
-			if (this.conn == null || this.conn.isClosed()){
+			if (this.conn == null || this.conn.isClosed()) {
 				conn = new DBConn().getConn();
 				System.out.println("------数据库连接成功------");
 			}
@@ -30,38 +30,36 @@ public class StudentJdbc {
 			System.out.println("StudentJdbc 获取连接失败");
 			e.printStackTrace();
 		}
-		
+
 		return conn;
-			
+
 	}
-	
+
 	public boolean addStudent(Student student) {
-		
+
 		boolean flag = false;
 		// TODO Auto-generated method stub
 		String sql1 = "insert into xsb(xh,xm,xb,cssj,zy,zxf,bz) values(?,?,?,?,?,?,?)";
 		String sql2 = "insert into xszp(xh,zp) values(?,?)";
-		
+
 		try {
-			
+
 			// 预编译语句
 			psmt = this.getConn().prepareStatement(sql1);
-			
+
 			// 收集数据
 			psmt.setString(1, student.getXh());
-			psmt.setString(2,student.getXm());
+			psmt.setString(2, student.getXm());
 			psmt.setString(3, student.getXb());
 			psmt.setTimestamp(4, new Timestamp(student.getCssj().getTime()));
 			psmt.setString(5, student.getZy());
 			psmt.setInt(6, student.getZxf());
 			psmt.setString(7, student.getBz());
-			
+
 			// 执行，将数据插入到xsb中
 			psmt.execute();
-			psmt = this.getConn().prepareStatement("commit");
-			psmt.execute();
 			System.out.println("------插入XSB成功------");
-			
+
 			// 添加学生照片
 			psmt = this.getConn().prepareStatement(sql2);
 			psmt.setString(1, student.getXh());
@@ -69,7 +67,7 @@ public class StudentJdbc {
 			psmt.execute();
 			System.out.println("------插入XSZP成功------");
 			flag = true;
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -83,9 +81,9 @@ public class StudentJdbc {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return flag;
-		
+
 	}
 
 }
