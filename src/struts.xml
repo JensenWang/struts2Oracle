@@ -5,4 +5,12 @@
 
 <struts>
 
+  <package name="default" extends="struts-default">
+    <action name="addStudent" class="org.action.StudentAction">
+      <result name="success">/addStudent_success.jsp</result>
+      <result name="error">/addStudent_fail.jsp</result>
+      <result name="input">/addStudent.jsp</result>
+    </action>
+  </package>
+
 </struts>

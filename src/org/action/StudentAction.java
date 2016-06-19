@@ -56,9 +56,12 @@ public class StudentAction extends ActionSupport{
 			student.setZp(buffer);
 		}
 		
-		studentJ.addStudent(student);
+		if(studentJ.addStudent(student)){
+			return SUCCESS;
+		} else {
+			return ERROR;
+		}
 		
-		return SUCCESS;
 	}
 	
 }
