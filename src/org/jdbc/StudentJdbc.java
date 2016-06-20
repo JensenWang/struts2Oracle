@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.List;
 
 import org.vo.Student;
 
@@ -35,6 +36,11 @@ public class StudentJdbc {
 
 	}
 
+	/**
+	 * 添加学生
+	 * @param student
+	 * @return
+	 */
 	public boolean addStudent(Student student) {
 
 		boolean flag = false;
@@ -85,5 +91,9 @@ public class StudentJdbc {
 		return flag;
 
 	}
-
+	
+	public List<Student> showStudent() throws SQLException {
+		return null;
+	}
+	
 }

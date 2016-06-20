@@ -2,11 +2,14 @@ package org.action;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import org.jdbc.StudentJdbc;
 import org.vo.*;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -32,7 +35,10 @@ public class StudentAction extends ActionSupport{
 	
 	private List<Student> studentList;
 
-	// 添加学生信息
+	/**
+	 * 添加学生
+	 * @return
+	 */
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
@@ -62,6 +68,24 @@ public class StudentAction extends ActionSupport{
 			return ERROR;
 		}
 		
+	}
+	
+	public String showAllStudent() {
+		Student student = new Student();
+		StudentJdbc studentJ = new StudentJdbc();
+		
+		try {
+			studentList = studentJ.showStudent();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// 返回一个Map对象
+		Map<String, List<Student>> request = (Map)ActionContext.getContext().get("request");
+		request.put("studentList",studentList);
+		
+		return SUCCESS;
 	}
 	
 }
