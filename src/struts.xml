@@ -11,6 +11,14 @@
       <result name="error">/addStudent_fail.jsp</result>
       <result name="input">/addStudent.jsp</result>
     </action>
+    
+    <!-- 查询所有学生 -->
+    <action name="showAllStudent" class="org.action.StudentAction" method="showAllStudent" >
+    	<result name="success">
+    		/showStudent.jsp
+    	</result>
+    </action>
+    
   </package>
 
 </struts>

@@ -1,11 +1,7 @@
 package org.jdbc;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.util.List;
+import java.sql.*;
+import java.util.*;
 
 import org.vo.Student;
 
@@ -93,7 +89,54 @@ public class StudentJdbc {
 	}
 	
 	public List<Student> showStudent() throws SQLException {
-		return null;
+	    
+	    String sql = "select * from xsb";
+	    
+	    List<Student> studentList = new ArrayList<Student>();
+	    
+	    try {
+	        
+            psmt = this.getConn().prepareStatement(sql);
+            result = psmt.executeQuery();
+            // 读取ResultSet中的数据，存放到list中
+            while (result.next()) {
+                Student student = new Student();
+                student.setBz(result.getString("bz"));
+                student.setCssj(result.getDate("cssj"));
+                student.setXb(result.getString("xb"));
+                student.setXh(result.getString("xh"));
+                student.setXm(result.getString("xm"));
+                student.setZxf(result.getInt("zxf"));
+                student.setZy(result.getString("zy"));
+                // 添加到list中
+                studentList.add(student);
+                
+            }
+            
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            System.out.println("！！！！！添加学生出错！！！！！");
+            e.printStackTrace();
+        } finally {
+            try {
+                if (result != null) {
+                    result.close();
+                    result = null;
+                }
+                if (psmt != null) {
+                    psmt.close();
+                    psmt = null;
+                }
+                if (conn != null) {
+                    conn.close();
+                    conn = null;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+	    
+		return studentList;
 	}
 	
 }

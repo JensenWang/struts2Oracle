@@ -19,6 +19,11 @@
         	color: #B36458;
     	}
     	
+    	a {
+    		text-decoration: none;
+    		color: #353E55;
+    	}
+    	
 		/*----table表样式----*/
 	    table {
 	        *border-collapse: collapse; /* IE7 and lower */
@@ -105,7 +110,7 @@
 <body>
   <center>
     <h2>学生信息一览表</h2><hr>
-    <table>
+    <table class="bordered">
       <tr>
         <td>学号</td><td>姓名</td><td>性别</td><td>专业</td>
         <td>出生时间</td><td>总学分</td><td>备注</td><td>详细信息</td>
