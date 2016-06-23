@@ -6,6 +6,10 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
 import org.jdbc.StudentJdbc;
 import org.vo.*;
 
@@ -70,6 +74,10 @@ public class StudentAction extends ActionSupport{
 		
 	}
 	
+	/**
+	 * 查询所有学生信息
+	 * @return
+	 */
 	public String showAllStudent() {
 		Student student = new Student();
 		StudentJdbc studentJ = new StudentJdbc();
@@ -88,4 +96,55 @@ public class StudentAction extends ActionSupport{
 		return SUCCESS;
 	}
 	
+	/**
+	 * 查询单个学生
+	 * @return
+	 * @throws Exception
+	 */
+	public String showOneStudent() throws Exception {
+		Student student1 = new Student();
+		StudentJdbc studentJ = new StudentJdbc();
+		student1 = studentJ.showOneStudent(student.getXh());
+		Map request = (Map)ActionContext.getContext().get("request");
+		// 将单个学生信息放入到Map容器中
+		request.put(student1, "student1");
+		return SUCCESS;
+	}
+	
+	public String getImage() throws Exception {
+		HttpServletResponse response = ServletActionContext.getResponse();
+		Student student1 = new Student();
+		StudentJdbc studentJ = new StudentJdbc();
+		String xh = student.getXh();
+		// 查询一个学生
+		student1 = studentJ.showOneStudent(xh);
+		byte[] img = student1.getZp();
+		// 制定HTTP响应的编码
+		response.setContentType("image/jpeg");
+		// 返回一个输出流
+		ServletOutputStream os = response.getOutputStream();
+		if (img != null && img.length != 0) {
+			for (int i = 0; i < img.length; i++) {
+				os.write(img[i]);	// 向流中写入数据
+			}
+		}
+		
+		return NONE;
+		
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
