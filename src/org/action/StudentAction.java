@@ -107,7 +107,7 @@ public class StudentAction extends ActionSupport{
 		student1 = studentJ.showOneStudent(student.getXh());
 		Map request = (Map)ActionContext.getContext().get("request");
 		// 将单个学生信息放入到Map容器中
-		request.put(student1, "student1");
+		request.put("student1", student1);
 		return SUCCESS;
 	}
 	

@@ -23,6 +23,7 @@
     		width: 60px;
     		height: 35px;
     		margin: 0px;
+    		margin-top: 20px;
     		padding: 0px;
     		border: 0px;
     		border-radius: 8px;
@@ -50,15 +51,6 @@
 		    -webkit-box-shadow: 0 1px 1px #ccc;
 		    -moz-box-shadow: 0 1px 1px #ccc;
 		    box-shadow: 0 1px 1px #ccc;
-		}
-
-		.bordered tr:hover {
-		    background: #fbf8e9;
-		    -o-transition: all 0.1s ease-in-out;
-		    -webkit-transition: all 0.1s ease-in-out;
-		    -moz-transition: all 0.1s ease-in-out;
-		    -ms-transition: all 0.1s ease-in-out;
-		    transition: all 0.1s ease-in-out;
 		}
 
 		.bordered td, .bordered th {
@@ -121,16 +113,16 @@
   </head>
 
 <body>
-  <s:set name="xs" value="request.student1"></s:set>
+  <s:set name="xs" value="#request.student1"></s:set>
   <center>
     <h3><s:property value="#xs.xm" />信息</h3>
-    <table class="">
+    <table class="bordered">
       <tr>
         <td>
-          <table>
+          <table class="bordered">
             <tr>
               <td>学号：</td>
-              <td width="200"><s:property value="#xs.sh" /></td>
+              <td width="200"><s:property value="#xs.xh" /></td>
             </tr>
             <tr>
               <td>姓名：</td>
@@ -159,7 +151,7 @@
           </table>
         </td>
         <td>
-          <table>
+          <table class="bordered">
             <tr>
               <td align="center">照片</td>
             </tr>
