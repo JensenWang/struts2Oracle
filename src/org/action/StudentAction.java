@@ -111,6 +111,11 @@ public class StudentAction extends ActionSupport{
 		return SUCCESS;
 	}
 	
+	/**
+	 * 获取相片
+	 * @return
+	 * @throws Exception
+	 */
 	public String getImage() throws Exception {
 		HttpServletResponse response = ServletActionContext.getResponse();
 		Student student1 = new Student();
