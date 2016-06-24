@@ -16,6 +16,9 @@
         	font-family: "微软雅黑";
         	color: #B36458;
     	}
+    	.bordered tr:hover{
+    		background: none;
+    	}
 	</style>
   </head>
 
