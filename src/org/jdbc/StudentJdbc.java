@@ -88,6 +88,11 @@ public class StudentJdbc {
 
 	}
 	
+	/**
+	 * 查询所有学生
+	 * @return
+	 * @throws SQLException
+	 */
 	public List<Student> showStudent() throws SQLException {
 	    
 	    String sql = "select * from xsb";
@@ -115,7 +120,7 @@ public class StudentJdbc {
             
         } catch (Exception e) {
             // TODO Auto-generated catch block
-            System.out.println("！！！！！添加学生出错！！！！！");
+            System.out.println("！！！！！查询出错！！！！！");
             e.printStackTrace();
         } finally {
             try {
