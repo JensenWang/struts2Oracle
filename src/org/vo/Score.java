@@ -6,6 +6,8 @@ public class Score {
     private String kch; // 课程号
     private String cj;  // 成绩
     
+    public Score() {}
+    
     public Score(String xh, String kch, String cj) {
         super();
         this.xh = xh;
