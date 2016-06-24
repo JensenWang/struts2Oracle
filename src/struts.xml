@@ -27,6 +27,11 @@
     </action>
     <action name="getImage" class="org.action.StudentAction" method="getImage"></action>
     
+    <!-- 删除学生 -->
+    <action name="deleteStudent" class="org.action.StudentAction" method="deleteStudent">
+    	<result>/showAllStudent.jsp</result>
+    </action>
+    
   </package>
 
 </struts>

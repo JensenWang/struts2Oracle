@@ -79,7 +79,6 @@ public class StudentAction extends ActionSupport{
 	 * @return
 	 */
 	public String showAllStudent() {
-		Student student = new Student();
 		StudentJdbc studentJ = new StudentJdbc();
 		
 		try {
@@ -105,7 +104,7 @@ public class StudentAction extends ActionSupport{
 		Student student1 = new Student();
 		StudentJdbc studentJ = new StudentJdbc();
 		student1 = studentJ.showOneStudent(student.getXh());
-		Map request = (Map)ActionContext.getContext().get("request");
+		Map<String, Student> request = (Map)ActionContext.getContext().get("request");
 		// 将单个学生信息放入到Map容器中
 		request.put("student1", student1);
 		return SUCCESS;
@@ -138,6 +137,11 @@ public class StudentAction extends ActionSupport{
 		
 	}
 	
+	public String deleteStudent() throws Exception {
+	    StudentJdbc studentJ = new StudentJdbc();
+	    studentJ.deleteStudent(student.getXh());
+	    return SUCCESS;
+	}
 }
 
 

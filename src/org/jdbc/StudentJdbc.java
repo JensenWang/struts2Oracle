@@ -20,7 +20,6 @@ public class StudentJdbc {
 		try {
 			if (this.conn == null || this.conn.isClosed()) {
 				conn = new DBConn().getConn();
-				System.out.println("------数据库连接成功------");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -189,6 +188,32 @@ public class StudentJdbc {
 		}
 		return student;
 	}
-	
 
+	/**
+	 * 删除学生，通过xh
+	 * @param xh
+	 */
+    public void deleteStudent(String xh) {
+        // TODO Auto-generated method stub
+        String sql = "delete from xsb where xh = '" + xh + "'";
+        
+        try {
+            psmt = this.getConn().prepareStatement(sql);
+            psmt.execute();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            System.out.println("！！！！！删除学生失败！！！！！");
+            e.printStackTrace();
+        } finally {
+            try {
+                psmt.close();
+                conn.close();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        
+    }
+	
 }
