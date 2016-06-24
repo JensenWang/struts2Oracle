@@ -89,7 +89,7 @@ public class StudentJdbc {
 	}
 	
 	/**
-	 * 查询所有学生
+	 * 查询所有学生信息
 	 * @return
 	 * @throws SQLException
 	 */
@@ -143,5 +143,52 @@ public class StudentJdbc {
 	    
 		return studentList;
 	}
+
+	/**
+	 * 查询单个学生信息
+	 * @param xh
+	 * @return
+	 */
+	public Student showOneStudent(String xh) {
+		ResultSet rs = null;
+		String sql1 = "select * from xsb where xh = " + xh;
+		String sql2 = "select zp from xszp where xh = " + xh;
+		Student student = new Student();
+		try{
+			
+			// 查询一个学生
+			psmt = this.getConn().prepareStatement(sql1);
+			result = psmt.executeQuery();
+			while (result.next()) {
+				student.setBz(result.getString("bz"));
+				student.setCssj(result.getDate("cssj"));
+				student.setXb(result.getString("xb"));
+				student.setXh(result.getString("xh"));
+				student.setXm(result.getString("xm"));
+				student.setZxf(result.getInt("zxf"));
+				student.setZy(result.getString("zy"));
+			}
+			
+			// 查询学生相片
+			psmt = this.getConn().prepareStatement(sql2);
+			result = psmt.executeQuery();
+			while (result.next()) {
+				student.setZp(result.getBytes("zp"));
+			}
+			
+		} catch (Exception e){
+			System.out.println("！！！查询单个学生信息失败！！！");
+			e.printStackTrace();
+		} finally {
+			try {
+				psmt.close();
+				conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return student;
+	}
 	
+
 }

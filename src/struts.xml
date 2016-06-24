@@ -19,6 +19,14 @@
     	</result>
     </action>
     
+    <!-- 查询单个学生 -->
+    <action name="showOneStudent" class="org.action.StudentAction" method="showOneStudent">
+    	<result name="success">
+    		/showOneStudent.jsp
+    	</result>
+    </action>
+    <action name="getImage" class="org.action.StudentAction" method="getImage"></action>
+    
   </package>
 
 </struts>
