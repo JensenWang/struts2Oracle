@@ -137,6 +137,11 @@ public class StudentAction extends ActionSupport{
 		
 	}
 	
+	/**
+	 * 删除学生
+	 * @return
+	 * @throws Exception
+	 */
 	public String deleteStudent() throws Exception {
 	    StudentJdbc studentJ = new StudentJdbc();
 	    studentJ.deleteStudent(student.getXh());
