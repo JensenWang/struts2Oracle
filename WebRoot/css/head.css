@@ -1,0 +1,44 @@
+@CHARSET "UTF-8";
+
+body {
+	margin: 0px;
+	padding: 0px;
+	background: #353E55;
+	color: #E4E6D8;
+	font-family: "微软雅黑";
+}
+
+h3 {
+	height: 80px;
+	margin: 0;
+	margin-left: 10px;
+	padding: 0;
+	font-size: 32px;
+	line-height: 80px;
+	float: left;
+	display: block;
+}
+
+ul {
+	height: 60px;
+	list-style-type: none;
+	margin: 0;
+	margin-right: 30px;
+	padding: 0;
+	padding-top: 20px;
+	width: 300px;
+	float: right;
+}
+
+li {
+	line-height: 80px;
+	height: 80px;
+	display: inline;
+	margin: 0 10px;
+}
+
+a {
+	color: #E4E6D8;
+	font-size: 16px;
+	text-decoration: none;
+}
