@@ -147,6 +147,41 @@ public class StudentAction extends ActionSupport{
 	    studentJ.deleteStudent(student.getXh());
 	    return SUCCESS;
 	}
+
+	/**
+	 * 更新一个学生
+	 * @return
+	 * @throws Exception
+	 */
+	public String updateSaveStudent() throws Exception {
+	    StudentJdbc studentJ = new StudentJdbc();
+	    
+	    student.setXh(student.getXh());
+        student.setBz(student.getBz());
+        student.setCssj(student.getCssj());
+        student.setXb(student.getXb());
+        student.setXm(student.getXm());
+        student.setZxf(student.getZxf());
+        student.setZy(student.getZy());
+        
+        if (this.getZpfile() != null){
+            // 创建文件输入流，用于读取图片
+            FileInputStream fis = new FileInputStream(this.getZpfile());
+            // 创建字节类数组，存放图片二进制数据
+            byte[] buffer = new byte[fis.available()];
+            // 将图片类容读入到字节数组中
+            fis.read(buffer);
+            student.setZp(buffer);
+        }
+	    
+        if(studentJ.updateSaveStudent(student)){
+            return SUCCESS;
+        } else {
+            return ERROR;
+        }
+        
+	}
+	
 }
 
 

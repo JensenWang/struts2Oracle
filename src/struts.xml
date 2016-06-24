@@ -32,6 +32,15 @@
     	<result>/showAllStudent.jsp</result>
     </action>
     
+    <!-- 修改学生 -->
+    <action name="updateStudent" class="org.action.StudentAction" method="showOneStudent">
+    	<result>/updateStudent.jsp</result>
+    </action>
+    <action name="updaetSaveStudent" class="org.action.StudentAction" method="updateSaveStudent">
+    	<result>/showAllStudent.jsp</result>
+    	<result name="error">/updateStudent_fail.jsp</result>
+    </action>
+    
   </package>
 
 </struts>

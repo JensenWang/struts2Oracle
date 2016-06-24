@@ -215,5 +215,49 @@ public class StudentJdbc {
         }
         
     }
+
+    
+    /**
+     * 更新一个学生
+     * @param student
+     */
+    public boolean updateSaveStudent(Student student) {
+        boolean flag = false;
+        
+        String sql1 = "update xsb set xm=?,xb=?,cssj=?,zy=?,zxf=?,bz=? where xh = '" + student.getXh() + "'";
+        String sql2 = "update xszp set zp=? where xh = '" + student.getXh() + "'";
+        
+        try {
+            
+            psmt = this.getConn().prepareStatement(sql1);
+            psmt.setString(1, student.getXm());
+            psmt.setString(2, student.getXb());
+            psmt.setTimestamp(3, new Timestamp(student.getCssj().getTime()));
+            psmt.setString(4, student.getZy());
+            psmt.setInt(5, student.getZxf());
+            psmt.setString(6, student.getBz());
+            psmt.execute();
+            
+            psmt = this.getConn().prepareStatement(sql2);
+            psmt.setBytes(1, student.getZp());
+            psmt.execute();
+            
+            flag = true;
+            
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            try {
+                psmt.close();
+                conn.close();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        
+        return flag;
+    }
 	
 }
