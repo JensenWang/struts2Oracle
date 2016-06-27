@@ -28,7 +28,7 @@
     <table class="bordered">
       <tr>
         <td>学号</td><td>姓名</td><td>性别</td><td>专业</td>
-        <td>出生时间</td><td>总学分</td><td>备注</td><td>详细信息</td>
+        <td>出生时间</td><td>总学分</td><td width="200">备注</td><td>详细信息</td>
         <td colspan="2">操作</td>
       </tr>
       <s:iterator value="#request.studentList" id="xs">
