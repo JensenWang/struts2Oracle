@@ -41,6 +41,15 @@
     	<result name="error">/updateStudent_fail.jsp</result>
     </action>
     
+    <!-- 查询学生和课程信息 -->
+    <action name="showAllScore" class="org.action.ScoreAction" method="showAllScore">
+    	<result>/showScore.jsp</result>
+    </action>
+    
+    <action name="addScore" class="org.action.ScoreAction" method="addScore">
+    	<result>/addScore_success.jsp</result>
+    </action>
+    
   </package>
 
 </struts>

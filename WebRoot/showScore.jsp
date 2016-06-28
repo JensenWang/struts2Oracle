@@ -5,17 +5,28 @@
   <head>
     
     <title>查询成绩</title>
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<style type="text/css">
+		body{
+    	    marign: 0;
+    	    padding: 0;
+    	    margin-top: 30px;
+    	    background: #E4E6D8;
+        	font-family: "微软雅黑";
+        	color: #B36458;
+    	}
+    	.bordered tr:hover{
+    		background: none;
+    	}
+    	
+	</style>
   </head>
   
 <body>
   <center>
     <h3>录入学生信息</h3><hr>
-    <s:form acction="addScore" method="post">
-      <table cellspacing="1" cellpadding="8" width="400">
+    <s:form action="addScore" method="post">
+      <table cellspacing="1" cellpadding="8" width="400" class="bordered">
         <tr>
           <td width="100">请选择学生：</td>
           <td>
@@ -27,8 +38,9 @@
           </td>
         </tr>
         <tr>
-          <td width="100">
-            <select name="score.kcch">
+          <td width="100">请选择课程：</td>
+          <td>
+            <select name="score.kch">
               <s:iterator id="kc" value="#request.courseList">
                 <option value="<s:property value="#kc.kch"/>"><s:property value="#kc.kcm"/></option>
               </s:iterator>
@@ -39,8 +51,8 @@
           <s:textfield label="成绩" name="score.cj" value="" size="14"></s:textfield>
         </tr>
       </table>
-      <input type="submit" value="录入" />
-      <input type="reset" value="重置" />
+      <input class="btn" type="submit" value="录入" />
+      <input class="btn" type="reset" value="重置" />
     </s:form>
   </center>
 </body>

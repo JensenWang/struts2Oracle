@@ -8,6 +8,16 @@
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<style type="text/css">
+		body{
+    	    marign: 0;
+    	    padding: 0;
+    	    margin-top: 30px;
+    	    background: #E4E6D8;
+        	font-family: "微软雅黑";
+        	color: #B36458;
+    	}
+	</style>
 
   </head>
   

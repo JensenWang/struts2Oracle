@@ -26,10 +26,6 @@ public class ScoreAction extends ActionSupport{
 		this.score = score;
 	}
 
-	public String execute() throws Exception {
-		return SUCCESS;
-	}
-	
 	/**
 	 * 添加学生成绩
 	 * @return
@@ -40,8 +36,12 @@ public class ScoreAction extends ActionSupport{
 		score.setXh(score.getXh());
 		score.setKch(score.getKch());
 		score.setCj(score.getCj());
-		scoreJ.addScore(score);
-		return SUCCESS;
+		System.out.println("addScore Action");
+		if (scoreJ.addScore(score)) {
+		    System.out.println("成绩录入成功");
+		    return SUCCESS;
+		}
+		return ERROR;
 	}
 	
 	/**
